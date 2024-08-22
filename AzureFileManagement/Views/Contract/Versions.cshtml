@@ -1,0 +1,36 @@
+﻿@model List<Contract>
+
+@{
+    ViewData["Title"] = "Contract Versions";
+}
+
+<h2>Contract Versions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Version</th>
+            <th>Uploaded At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contract in Model)
+        {
+            <tr>
+                <td>@contract.FileName</td>
+                <td>@contract.Version</td>
+                <td>@contract.UploadedAt</td>
+                <td>
+                    <form asp-action="Download" method="get" style="display:inline">
+                        <input type="hidden" name="directoryName" value="@contract.DirectoryName" />
+                        <input type="hidden" name="fileName" value="@contract.FileName" />
+                        <input type="hidden" name="version" value="@contract.Version" />
+                        <button type="submit" class="btn btn-primary">Download</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

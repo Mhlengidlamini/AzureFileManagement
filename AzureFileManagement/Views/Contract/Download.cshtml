@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Download Contract";
+}
+
+<h2>Download Contract</h2>
+
+<form asp-action="Download" method="get">
+    <div class="form-group">
+        <label for="directoryName">Directory Name</label>
+        <input type="text" class="form-control" id="directoryName" name="directoryName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="fileName">Contract File Name</label>
+        <input type="text" class="form-control" id="fileName" name="fileName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="version">Version (Optional)</label>
+        <input type="number" class="form-control" id="version" name="version">
+        <small class="form-text text-muted">Specify version number if required. Leave blank to download the latest version.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Download</button>
+</form>
